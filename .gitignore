@@ -1,0 +1,30 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+secrets*.json
+
+# Local workspace and generated deliverables
+work/
+outputs/
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Common runtime artifacts
+__pycache__/
+*.py[cod]
+node_modules/
+dist/
+build/
+coverage/
+*.log
+
