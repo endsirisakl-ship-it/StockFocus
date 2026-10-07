@@ -1,8 +1,10 @@
 # StockFocus
 
-StockFocus is a new project repository for stock-focused tools and research.
+StockFocus is a responsive live-market dashboard for following major stocks, indices, forex pairs, and cryptocurrencies in one place.
 
 ## Status
 
-Project initialized. Add implementation details and setup instructions here as the project evolves.
+The site is a static HTML/CSS/JavaScript application in `public/`. Market widgets are powered by TradingView and refresh automatically in the browser. Exchange-specific data may be delayed.
+
+Open `public/index.html` to view the project locally.
 

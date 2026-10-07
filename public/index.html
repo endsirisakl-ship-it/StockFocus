@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07110f" />
+    <meta name="description" content="StockFocus — ติดตามหุ้นและดัชนีสำคัญจากตลาดทั่วโลกในหน้าเดียว" />
+    <title>StockFocus — Market Watchlist</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%2307110f%22/><path d=%22M13 43l12-13 9 7 17-20%22 fill=%22none%22 stroke=%22%2368f7b4%22 stroke-width=%226%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="StockFocus หน้าแรก">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Stock<span>Focus</span></span>
+      </a>
+      <div class="market-state" aria-live="polite">
+        <span class="pulse"></span>
+        <span id="market-label">กำลังตรวจสอบตลาด</span>
+        <time id="clock"></time>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">GLOBAL MARKET MONITOR</p>
+          <h1>ตลาดทั้งหมด<br /><em>ในสายตาเดียว</em></h1>
+        </div>
+        <div class="intro-copy">
+          <p>ติดตามราคาหุ้น ดัชนี ฟอเร็กซ์ และคริปโตสำคัญแบบอัปเดตอัตโนมัติ พร้อมเปรียบเทียบการเคลื่อนไหวได้ทันที</p>
+          <a href="#watchlist">ดูรายการหุ้น</a>
+        </div>
+      </section>
+
+      <section class="ticker-shell" aria-label="แถบราคาตลาดล่าสุด">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+          {
+            "symbols": [
+              {"proName":"NASDAQ:AAPL","title":"Apple"},
+              {"proName":"NASDAQ:MSFT","title":"Microsoft"},
+              {"proName":"NASDAQ:NVDA","title":"NVIDIA"},
+              {"proName":"NASDAQ:GOOGL","title":"Alphabet"},
+              {"proName":"NASDAQ:AMZN","title":"Amazon"},
+              {"proName":"NASDAQ:TSLA","title":"Tesla"},
+              {"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"}
+            ],
+            "showSymbolLogo": true,
+            "isTransparent": true,
+            "displayMode": "adaptive",
+            "colorTheme": "dark",
+            "locale": "th_TH"
+          }
+          </script>
+        </div>
+      </section>
+
+      <section class="workspace" id="watchlist">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">LIVE WATCHLIST</p>
+            <h2>รายการติดตาม</h2>
+          </div>
+          <p>ราคาอาจหน่วงตามข้อกำหนดของแต่ละตลาด</p>
+        </div>
+
+        <div class="quotes-card">
+          <div class="tradingview-widget-container fill-widget">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+            {
+              "width": "100%",
+              "height": "640",
+              "symbolsGroups": [
+                {
+                  "name": "หุ้นสหรัฐฯ",
+                  "symbols": [
+                    {"name":"NASDAQ:AAPL","displayName":"Apple"},
+                    {"name":"NASDAQ:MSFT","displayName":"Microsoft"},
+                    {"name":"NASDAQ:NVDA","displayName":"NVIDIA"},
+                    {"name":"NASDAQ:GOOGL","displayName":"Alphabet"},
+                    {"name":"NASDAQ:AMZN","displayName":"Amazon"},
+                    {"name":"NASDAQ:META","displayName":"Meta"},
+                    {"name":"NASDAQ:TSLA","displayName":"Tesla"}
+                  ]
+                },
+                {
+                  "name": "ดัชนีโลก",
+                  "symbols": [
+                    {"name":"FOREXCOM:SPXUSD","displayName":"S&P 500"},
+                    {"name":"FOREXCOM:NSXUSD","displayName":"Nasdaq 100"},
+                    {"name":"FOREXCOM:DJI","displayName":"Dow 30"},
+                    {"name":"INDEX:NKY","displayName":"Nikkei 225"},
+                    {"name":"INDEX:HSI","displayName":"Hang Seng"}
+                  ]
+                },
+                {
+                  "name": "คริปโต",
+                  "symbols": [
+                    {"name":"BITSTAMP:BTCUSD","displayName":"Bitcoin"},
+                    {"name":"BITSTAMP:ETHUSD","displayName":"Ethereum"},
+                    {"name":"COINBASE:SOLUSD","displayName":"Solana"}
+                  ]
+                }
+              ],
+              "showSymbolLogo": true,
+              "isTransparent": true,
+              "colorTheme": "dark",
+              "locale": "th_TH",
+              "backgroundColor": "#0b1714"
+            }
+            </script>
+          </div>
+        </div>
+      </section>
+
+      <section class="overview">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">MARKET MAP</p>
+            <h2>ภาพรวมตลาด</h2>
+          </div>
+          <p>สำรวจแนวโน้มหลักในกรอบเวลาเดียวกัน</p>
+        </div>
+        <div class="overview-card">
+          <div class="tradingview-widget-container fill-widget">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+            {
+              "colorTheme": "dark",
+              "dateRange": "1D",
+              "showChart": true,
+              "locale": "th_TH",
+              "width": "100%",
+              "height": "560",
+              "isTransparent": true,
+              "showSymbolLogo": true,
+              "showFloatingTooltip": true,
+              "tabs": [
+                {"title":"ดัชนี","symbols":[{"s":"FOREXCOM:SPXUSD","d":"S&P 500"},{"s":"FOREXCOM:NSXUSD","d":"Nasdaq 100"},{"s":"FOREXCOM:DJI","d":"Dow 30"},{"s":"INDEX:NKY","d":"Nikkei 225"},{"s":"INDEX:HSI","d":"Hang Seng"}]},
+                {"title":"ฟอเร็กซ์","symbols":[{"s":"FX:EURUSD","d":"EUR / USD"},{"s":"FX:USDJPY","d":"USD / JPY"},{"s":"FX:USDTHB","d":"USD / THB"},{"s":"FX:GBPUSD","d":"GBP / USD"}]},
+                {"title":"สินค้าโภคภัณฑ์","symbols":[{"s":"TVC:GOLD","d":"Gold"},{"s":"TVC:USOIL","d":"Crude Oil"},{"s":"TVC:SILVER","d":"Silver"}]}
+              ]
+            }
+            </script>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> StockFocus</span>
+      <p>ข้อมูลเพื่อการติดตามตลาดเท่านั้น ไม่ใช่คำแนะนำด้านการลงทุน</p>
+      <span>Market data by TradingView</span>
+    </footer>
+    <script src="./app.js"></script>
+  </body>
+</html>
+
