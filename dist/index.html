@@ -37,6 +37,17 @@
         </div>
       </section>
 
+      <section class="stock-search" aria-label="ค้นหาหุ้น">
+        <form id="stock-search-form" class="stock-search-form">
+          <label for="stock-query">ค้นหาหุ้น / Stock Search</label>
+          <div class="stock-search-row">
+            <input id="stock-query" type="search" placeholder="ค้นหา Symbol เช่น TSLA, NVDA, AMD" autocomplete="off" maxlength="30" required />
+            <button type="submit">ค้นหา</button>
+          </div>
+          <p id="stock-search-message" role="status">พิมพ์ชื่อย่อหุ้นเพื่อเปิดกราฟและข้อมูลใน TradingView</p>
+        </form>
+        <div id="stock-search-result" class="stock-search-result" hidden></div>
+      </section>
       <section class="ticker-shell" aria-label="แถบราคาตลาดล่าสุด">
         <div class="tradingview-widget-container">
           <div class="tradingview-widget-container__widget"></div>
